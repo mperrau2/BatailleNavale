@@ -1,1 +1,27 @@
-grille
+import javax.swing.*; // Pour les composants graphiques que l'on ajoutera dans la méthode creerWidget
+import java.awt.*;    // Pour la JFrame
+
+public class Fenetre extends JFrame {
+
+    public Fenetre() {
+
+        creerWidget();
+        JButton grille[][];
+        setSize(200,200);                                // Fixe la taille par défaut
+        setVisible(true);                                // Affiche la fenetre
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Gestion de la fermeture
+    }
+
+    public void creerWidget() {
+       JButton grille[][] = new JButton[10][10];
+       for(int i=1;i<11;i++){
+           for(int j=1;i<11;i++){
+               String s= new String();
+               s= String.valueOf(i);
+               JButton bob = new JButton(s);
+           }
+
+       }
+        // création de tous les composants graphiques de la fenêtre
+    }
+}
