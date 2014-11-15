@@ -1,3 +1,68 @@
-Création des bateaux 
+/** Classe Bateau **/
+import java.io.*;
+import java.util.*;
+ 
+public class Bateau{
+	public int taille;
+	public int nbVie;
 
-yes
+	Bateau(int taille, int nbVie){
+		this.taille=taille;
+		this.nbVie=nbVie;
+	}
+}
+
+/** Classe SousMarin **/
+import java.io.*;
+import java.util.*;
+ 
+public class SousMarin extends Bateau{
+
+	SousMarin(int taille, int nbVie){
+		super(3,3);
+	}
+}
+
+/** Classe ContreTorpilleur **/
+import java.io.*;
+import java.util.*;
+
+public class ContreTorpilleur extends Bateau{
+
+	ContreTorpilleur(int taille, int nbVie){
+		super(3,3);
+	}
+}
+
+/** Classe Torpilleur **/
+import java.io.*;
+import java.util.*;
+
+public class Torpilleur extends Bateau{
+
+	Torpilleur(int taille, int nbVie){
+		super(2,2);
+	}
+}
+
+/** Classe Croiseur **/
+import java.io.*;
+import java.util.*;
+ 
+public class Croiseur extends Bateau{
+
+	Croiseur(int taille, int nbVie){
+		super(4,4);
+	}
+}
+
+/** Classe Porteavion **/
+import java.io.*;
+import java.util.*;
+ 
+public class Porteavion extends Bateau{
+
+	Porteavion(int taille, int nbVie){
+		super(5,5);
+	}
+}
