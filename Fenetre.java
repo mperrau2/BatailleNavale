@@ -1,5 +1,4 @@
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.util.Vector;
@@ -9,11 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.border.Border;
 
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,7 +27,7 @@ public class Fenetre extends JFrame{
 	int[] order,tab;
 	JLabel l1, l2,l3,global,ci;
 	JButton[][] grille=  new JButton[10][10];
-    JButton[] grille2=  new JButton[100];
+    JButton[][] grille2=  new JButton[10][10];
 	Dimension taille = new Dimension(150,150);
 	JComboBox liste;
     JRadioButton rb1 = new JRadioButton("Horizontale",true);
@@ -49,7 +44,7 @@ public class Fenetre extends JFrame{
 	 int k=0;
 	 float s;
 	 String u,monscore,bestScores;
-	 String[] items = { "Porte-avion : 5 cases", "Croiseur : 4 cases","Contre-torpilleurs : 3 cases","Sous-marin : 3 cases","Tropilleur : 2 cases" };
+	 String[] items = { "Porte-avion : 5 cases", "Croiseur : 4 cases","Contre-torpilleurs : 3 cases","Sous-marin : 3 cases","Torpilleur : 2 cases" };
 	 
 	 
 	 public Fenetre() {
@@ -135,8 +130,8 @@ public class Fenetre extends JFrame{
 		
 		 
 		 JPanel pan = new JPanel(new GridLayout(11,11));
-
-		 JPanel pan1 = new JPanel(new GridLayout(3,1));
+         pan.setSize(100,100);
+		 JPanel pan1 = new JPanel();
          JPanel panboutton = new JPanel();
 
 		
@@ -210,24 +205,38 @@ public class Fenetre extends JFrame{
 			
 		 
 		 }
-       /*  JPanel pan2 = new JPanel(new GridLayout(11,11));
-         for(int i=0;i<100;i++){
-             grille2[i]= new JButton();
-             pan2.add(grille2[i]);
+        JPanel pan2 = new JPanel(new GridLayout(11,11));
+         for(int i=0;i<10;i++){
+             for(int j=0;j<10;j++){
+                 grille2[i][j]= new JButton();
+                 pan2.add(grille2[i][j]);
 
-             grille2[i].addActionListener(control);
-             grille2[i].setIcon(new ImageIcon("src/mer.jpg"));
-         }*/
+                 grille2[i][j].addActionListener(control);
+                 grille2[i][j].setIcon(new ImageIcon("src/mer.jpg"));
+             }
+
+         }
 		 
 		 // cr�ation de tous les composants graphiques de la fen�tre
          panboutton.add(rb1);
          panboutton.add(rb2);
 
+         pan1.setLayout(new BoxLayout(pan1, BoxLayout.Y_AXIS));
          pan1.add(liste);
          pan1.add(panboutton);
 		 pan1.add(pan);
+
+         JPanel pan3 = new JPanel();
+         pan3.setLayout(new BoxLayout(pan3, BoxLayout.LINE_AXIS));
+         pan3.add(pan1);
+        // pan3.add(pan2);
+
+         JPanel pan4 = new JPanel();
+         pan4.setSize(500,500);
+         pan4.add(pan3);
+
          //pan1.add(pan2,BorderLayout.EAST);
-		 setContentPane(pan1);
+		 setContentPane(pan4);
 		 
 		 
 	/*	
